@@ -1,0 +1,566 @@
+/* ==========================================
+   FINANZAS FAMILIARES
+   DISEÑO PASTEL
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fdf8f6;
+    color: #5f5a66;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   APLICACIÓN
+========================================== */
+
+.app {
+    width: 92%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 35px 0 60px;
+}
+
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    font-size: 34px;
+    color: #625d72;
+    margin-bottom: 6px;
+}
+
+.encabezado p {
+    color: #9b95a2;
+    font-size: 16px;
+}
+
+.mes {
+    background: #eee5f5;
+    padding: 15px 22px;
+    border-radius: 18px;
+    text-align: right;
+}
+
+.mes span {
+    display: block;
+    font-size: 12px;
+    color: #9991a2;
+    margin-bottom: 4px;
+}
+
+.mes strong {
+    color: #625d72;
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 23px;
+    box-shadow: 0 8px 25px rgba(90, 80, 100, 0.07);
+}
+
+.tarjeta .icono {
+    font-size: 31px;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    color: #8e8895;
+    margin-bottom: 6px;
+}
+
+.tarjeta h2 {
+    font-size: 25px;
+    color: #5d5865;
+}
+
+.saldo {
+    background: #dff3e5;
+}
+
+.ingresos {
+    background: #dceeff;
+}
+
+.gastos {
+    background: #f9dfe5;
+}
+
+
+/* ==========================================
+   BOTÓN PRINCIPAL
+========================================== */
+
+.accion {
+    margin-bottom: 35px;
+}
+
+.boton-principal {
+    width: 100%;
+    padding: 18px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #c9afd8;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(130, 100, 150, 0.16);
+
+    transition: 0.2s;
+}
+
+.boton-principal:hover {
+    transform: translateY(-2px);
+    background: #bea1cf;
+}
+
+
+/* ==========================================
+   MOVIMIENTOS
+========================================== */
+
+.movimientos {
+    background: white;
+    padding: 28px;
+    border-radius: 24px;
+    box-shadow: 0 8px 25px rgba(90, 80, 100, 0.06);
+}
+
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.titulo-seccion h2 {
+    color: #625d72;
+    margin-bottom: 5px;
+}
+
+.titulo-seccion p {
+    color: #aaa4af;
+    font-size: 14px;
+}
+
+.boton-ver {
+    border: none;
+    background: #f1e8f5;
+    color: #756d7d;
+    padding: 9px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   SIN MOVIMIENTOS
+========================================== */
+
+.sin-movimientos {
+    text-align: center;
+    padding: 45px 20px;
+    background: #fdfafa;
+    border-radius: 18px;
+}
+
+.sin-movimientos span {
+    font-size: 40px;
+}
+
+.sin-movimientos h3 {
+    margin-top: 12px;
+    margin-bottom: 7px;
+    color: #77717d;
+}
+
+.sin-movimientos p {
+    color: #aaa4af;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   VENTANA DE REGISTRO
+========================================== */
+
+/* La ventana permanece oculta hasta que
+   programemos el botón */
+
+.ventana {
+    display: none;
+}
+
+
+/* Fondo oscuro transparente */
+
+#ventana-registro {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(75, 68, 82, 0.38);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(4px);
+}
+
+
+/* ==========================================
+   CAJA DEL FORMULARIO
+========================================== */
+
+.modal {
+    width: 100%;
+    max-width: 520px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fffdfc;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(60, 50, 70, 0.20);
+}
+
+
+/* ==========================================
+   ENCABEZADO DEL MODAL
+========================================== */
+
+.modal-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+.modal-icono {
+    font-size: 25px;
+}
+
+.modal-encabezado h2 {
+    color: #625d72;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.modal-encabezado p {
+    color: #a19aa6;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+/* ==========================================
+   BOTÓN CERRAR
+========================================== */
+
+.boton-cerrar {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f9e1e7;
+
+    color: #756d78;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.boton-cerrar:hover {
+    background: #f3ccd6;
+}
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo > label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #716a78;
+
+    margin-bottom: 9px;
+}
+
+
+/* ==========================================
+   INGRESO / GASTO
+========================================== */
+
+.opciones-tipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.opciones-tipo button {
+    border: 2px solid #eee7f1;
+
+    background: #faf8fb;
+
+    color: #746d7b;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.opciones-tipo .tipo-activo {
+    background: #dceeff;
+    border-color: #bcdcf8;
+    color: #5d7184;
+}
+
+
+/* ==========================================
+   CATEGORÍAS
+========================================== */
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.categorias button {
+    border: 1px solid #eee6f0;
+
+    background: #faf8fb;
+
+    color: #706977;
+
+    padding: 11px 6px;
+
+    border-radius: 13px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+.categorias button:hover {
+    background: #eee5f5;
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.campo input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 2px solid #eee8ef;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    color: #5f5a66;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #c9afd8;
+
+    box-shadow: 0 0 0 3px rgba(201, 175, 216, 0.15);
+}
+
+.campo input::placeholder {
+    color: #bbb5bf;
+}
+
+
+/* ==========================================
+   PERSONAS
+========================================== */
+
+.personas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.personas button {
+    border: 2px solid #eee7f1;
+
+    background: #faf8fb;
+
+    color: #746d7b;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.personas .persona-activa {
+    background: #dff3e5;
+    border-color: #c4e6cf;
+}
+
+
+/* ==========================================
+   BOTÓN GUARDAR
+========================================== */
+
+.boton-guardar {
+    width: 100%;
+
+    border: none;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    background: #c9afd8;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    box-shadow: 0 7px 18px rgba(130, 100, 150, 0.15);
+
+    transition: 0.2s;
+}
+
+.boton-guardar:hover {
+    background: #bea1cf;
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 700px) {
+
+    .app {
+        width: 94%;
+        padding-top: 20px;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .encabezado h1 {
+        font-size: 27px;
+    }
+
+    .mes {
+        width: 100%;
+        text-align: left;
+    }
+
+    .resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .movimientos {
+        padding: 20px;
+    }
+
+    .modal {
+        padding: 23px;
+        border-radius: 22px;
+    }
+
+    .categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+.boton-categoria.categoria-seleccionada {    background: #dceeff;
+    border-color: #bcdcf8;
+    color: #5d7184;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(100, 130, 160, 0.12);
+}
+}

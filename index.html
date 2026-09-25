@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finanzas Familiares</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- ENCABEZADO -->
+
+        <header class="encabezado">
+
+            <div>
+                <h1>💰 Finanzas Familiares</h1>
+                <p>Mario & Paola</p>
+            </div>
+
+            <div class="mes">
+                <span>Mes actual</span>
+                <strong>Septiembre 2026</strong>
+            </div>
+
+        </header>
+
+
+        <!-- RESUMEN -->
+
+        <section class="resumen">
+
+            <div class="tarjeta saldo">
+
+                <span class="icono">💰</span>
+
+                <div>
+                    <p>Saldo disponible</p>
+                    <h2>$0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta ingresos">
+
+                <span class="icono">💵</span>
+
+                <div>
+                    <p>Ingresos</p>
+                    <h2>$0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta gastos">
+
+                <span class="icono">🌸</span>
+
+                <div>
+                    <p>Gastos</p>
+                    <h2>$0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCIÓN PRINCIPAL -->
+
+        <section class="accion">
+
+        <button class="boton-principal" onclick="abrirRegistro()">
+    ＋ Registrar movimiento
+</button>
+
+        </section>
+<!-- VENTANA DE REGISTRO -->
+
+<div id="ventana-registro" class="ventana">
+
+    <div class="modal">
+
+        <div class="modal-encabezado">
+
+            <div>
+                <span class="modal-icono">✨</span>
+
+                <h2>Nuevo movimiento</h2>
+
+                <p>Registra un ingreso o un gasto</p>
+            </div>
+
+<button
+    type="button"
+    class="boton-cerrar"
+    onclick="cerrarRegistro()">
+    ×
+</button>
+        </div>
+
+
+        <div class="campo">
+
+            <label>¿Qué quieres registrar?</label>
+
+            <div class="opciones-tipo">
+
+                <button class="tipo-activo">
+                    💵 Ingreso
+                </button>
+
+                <button>
+                    🛒 Gasto
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Categoría</label>
+
+
+              <div class="categorias">
+
+    <button class="boton-categoria">🛒 Mercado</button>
+
+    <button class="boton-categoria">🍔 Comida</button>
+
+    <button class="boton-categoria">🍎 Fruta</button>
+
+    <button class="boton-categoria">🚗 Transporte</button>
+
+    <button class="boton-categoria">🏠 Hogar</button>
+
+    <button class="boton-categoria">💡 Servicios</button>
+
+    <button class="boton-categoria">👨‍👩‍👦 Familia</button>
+
+    <button class="boton-categoria">🎓 Educación</button>
+
+    <button class="boton-categoria">🎮 Diversión</button>
+
+    <button class="boton-categoria">💳 Salario</button>
+
+    <button class="boton-categoria">🏠 Arriendo</button>
+
+    <button class="boton-categoria">📦 Otros</button>
+
+</div>
+            </div>
+
+
+
+        <div class="campo">
+
+            <label for="descripcion">
+                Descripción
+            </label>
+
+            <input
+                type="text"
+                id="descripcion"
+                placeholder="Ej: Mercado del mes"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="valor">
+                Valor
+            </label>
+
+            <input
+                type="number"
+                id="valor"
+                placeholder="$ 0"
+                min="0"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>¿Quién registra?</label>
+
+            <div class="personas">
+
+                <button class="persona-activa">
+                    👨 Mario
+                </button>
+
+                <button>
+                    👩 Paola
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button class="boton-guardar">
+
+            💾 Guardar movimiento
+
+        </button>
+
+    </div>
+
+</div>
+
+        <!-- MOVIMIENTOS -->
+
+        <section class="movimientos">
+
+            <div class="titulo-seccion">
+
+                <div>
+                    <h2>Movimientos</h2>
+                    <p>Septiembre 2026</p>
+                </div>
+
+                <button class="boton-ver">
+                    Ver todos
+                </button>
+
+            </div>
+
+<div class="sin-movimientos" id="contenedor-movimientos">
+
+    <div id="estado-vacio">
+        <span>🌷</span>
+
+        <h3>Aún no hay movimientos</h3>
+
+        <p>
+            Registra tu primer ingreso o gasto
+        </p>
+    </div>
+
+    <div id="lista-movimientos"></div>
+
+</div>
+
+        </section>
+
+    </main>
+<script src="app.js"></script>
+
+</body>
+
+</html>
