@@ -25,8 +25,79 @@ function cerrarRegistro() {
     const ventana = document.getElementById("ventana-registro");
     ventana.style.display = "none";
 }
+let totalIngresos = 0;
+let totalGastos = 0;
+// ==========================================
+// RECUPERAR MOVIMIENTOS GUARDADOS
+// ==========================================
 
+function cargarMovimientosGuardados() {
 
+    const movimientosGuardados =
+        JSON.parse(localStorage.getItem("movimientos")) || [];
+
+    const listaMovimientos =
+        document.getElementById("lista-movimientos");
+
+    const estadoVacio =
+        document.getElementById("estado-vacio");
+
+    const tarjetaSaldo =
+        document.querySelector(".tarjeta.saldo h2");
+
+    const tarjetaIngresos =
+        document.querySelector(".tarjeta.ingresos h2");
+
+    const tarjetaGastos =
+        document.querySelector(".tarjeta.gastos h2");
+
+    movimientosGuardados.forEach(function (movimiento) {
+
+        const movimientoHTML =
+            document.createElement("div");
+
+        movimientoHTML.className = "movimiento";
+
+        movimientoHTML.innerHTML = `
+            <div>
+                <strong>${movimiento.categoria}</strong>
+                <p>${movimiento.descripcion} · ${movimiento.persona}</p>
+            </div>
+
+            <div>
+                <strong>
+                    ${movimiento.tipo.includes("Gasto") ? "-" : "+"}
+                    $${Number(movimiento.valor).toLocaleString("es-CO")}
+                </strong>
+            </div>
+        `;
+
+        listaMovimientos.appendChild(movimientoHTML);
+
+        const valorNumerico = Number(movimiento.valor);
+
+        if (movimiento.tipo.includes("Gasto")) {
+            totalGastos += valorNumerico;
+        } else {
+            totalIngresos += valorNumerico;
+        }
+    });
+
+    const saldo = totalIngresos - totalGastos;
+
+    tarjetaSaldo.textContent =
+        "$" + saldo.toLocaleString("es-CO");
+
+    tarjetaIngresos.textContent =
+        "$" + totalIngresos.toLocaleString("es-CO");
+
+    tarjetaGastos.textContent =
+        "$" + totalGastos.toLocaleString("es-CO");
+
+    if (movimientosGuardados.length > 0) {
+        estadoVacio.style.display = "none";
+    }
+}
 // ------------------------------------------
 // SELECCIONES
 // ------------------------------------------
@@ -104,13 +175,13 @@ const categorias = document.querySelectorAll(".categorias button");
         });
 
     });
-
+   // RECUPERAR MOVIMIENTOS AL ABRIR LA PÁGINA
+    cargarMovimientosGuardados();
 });
 // ==========================================
 // BOTÓN GUARDAR MOVIMIENTO
 // ==========================================
-let totalIngresos = 0;
-let totalGastos = 0;
+
 const botonGuardar = document.querySelector(".boton-guardar");
 
 
@@ -200,7 +271,23 @@ document.getElementById("estado-vacio").style.display = "none";
 // ======================================
 // CERRAR VENTANA
 // ======================================
+// GUARDAR MOVIMIENTO EN EL NAVEGADOR
 
+const movimientosGuardados =
+    JSON.parse(localStorage.getItem("movimientos")) || [];
+
+movimientosGuardados.push({
+    tipo: tipoSeleccionado.textContent.trim(),
+    categoria: categoriaSeleccionada.textContent.trim(),
+    descripcion: descripcion,
+    valor: valor,
+    persona: personaSeleccionada.textContent.trim()
+});
+
+localStorage.setItem(
+    "movimientos",
+    JSON.stringify(movimientosGuardados)
+);
 cerrarRegistro();
 
 });
