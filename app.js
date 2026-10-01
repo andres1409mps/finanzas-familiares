@@ -1,4 +1,13 @@
 // ==========================================
+// ==========================================
+// CONEXIÓN CON SUPABASE
+// ==========================================
+
+const supabaseClient = window.supabase.createClient(
+    "https://ljucssrpxesawmktmzim.supabase.co",
+    "sb_publishable_kn_0Cq6pvI6CnvkZ8U0dcw_v73AY03h"
+);
+
 // FINANZAS FAMILIARES
 // Programación principal
 // ==========================================
