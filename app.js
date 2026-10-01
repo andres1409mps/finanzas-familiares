@@ -194,7 +194,7 @@ const categorias = document.querySelectorAll(".categorias button");
 const botonGuardar = document.querySelector(".boton-guardar");
 
 
-botonGuardar.addEventListener("click", function () {
+botonGuardar.addEventListener("click",async function () {
 
     // Tipo: Ingreso o Gasto
     const tipoSeleccionado = document.querySelector(".opciones-tipo .tipo-activo");
@@ -282,21 +282,46 @@ document.getElementById("estado-vacio").style.display = "none";
 // ======================================
 // GUARDAR MOVIMIENTO EN EL NAVEGADOR
 
-const movimientosGuardados =
-    JSON.parse(localStorage.getItem("movimientos")) || [];
+const movimientosGuardados =const { error } = await supabaseClient
+    .from("movimientos")
+    .insert({
+        tipo: tipoSeleccionado.textContent.trim(),
+        categoria: categoriaSeleccionada.textContent.trim(),
+        descripcion: descripcion,
+        valor: Number(valor),
+        persona: personaSeleccionada.textContent.trim()
+    });
 
-movimientosGuardados.push({
-    tipo: tipoSeleccionado.textContent.trim(),
-    categoria: categoriaSeleccionada.textContent.trim(),
-    descripcion: descripcion,
-    valor: valor,
-    persona: personaSeleccionada.textContent.trim()
-});
+if (error) {
+    console.error("Error al guardar:", error);
+    alert("No se pudo guardar el movimiento.");
+    return;
+}
 
-localStorage.setItem(
-    "movimientos",
-    JSON.stringify(movimientosGuardados)
-);
 cerrarRegistro();
+});
+// ==========================================
+// INICIAR SESIÓN
+// ==========================================
+
+const botonLogin = document.getElementById("boton-login");
+
+botonLogin.addEventListener("click", async function () {
+
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        alert("Correo o contraseña incorrectos.");
+        return;
+    }
+
+    document.getElementById("login").style.display = "none";
+    document.querySelector(".app").style.display = "block";
 
 });
