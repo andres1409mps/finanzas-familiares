@@ -15,6 +15,139 @@ body {
     color: #5f5a66;
     min-height: 100vh;
 }
+/* ==========================================
+   INICIO DE SESIÓN
+========================================== */
+
+#login {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+.login-tarjeta {
+    width: 100%;
+    max-width: 420px;
+
+    background: #ffffff;
+
+    padding: 40px 35px;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(100, 80, 120, 0.12);
+}
+
+.login-icono {
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+.login-tarjeta h2 {
+    margin: 0 0 8px;
+
+    color: #625d72;
+
+    font-size: 30px;
+}
+
+.login-bienvenida {
+    margin: 0 0 5px;
+
+    color: #8d789f;
+
+    font-size: 17px;
+}
+
+.login-subtitulo {
+    margin: 0 0 28px;
+
+    color: #9a94a8;
+
+    font-size: 14px;
+}
+
+.login-campo {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.login-campo label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6f6880;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-campo input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #e1d8e8;
+
+    border-radius: 14px;
+
+    background: #fcf9fd;
+
+    color: #5f5a78;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.login-campo input:focus {
+    border-color: #c9addb;
+
+    box-shadow:
+        0 0 0 3px rgba(201, 173, 219, 0.18);
+}
+
+#boton-login {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #c9afd8;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#boton-login:hover {
+    background: #bea1cf;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   APLICACIÓN
+========================================== */
 
 
 /* ==========================================
