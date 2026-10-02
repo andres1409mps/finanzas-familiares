@@ -282,7 +282,7 @@ document.getElementById("estado-vacio").style.display = "none";
 // ======================================
 // GUARDAR MOVIMIENTO EN EL NAVEGADOR
 
-const movimientosGuardados =const { error } = await supabaseClient
+const { error } = await supabaseClient
     .from("movimientos")
     .insert({
         tipo: tipoSeleccionado.textContent.trim(),
