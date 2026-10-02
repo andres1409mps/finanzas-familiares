@@ -201,7 +201,7 @@ const categorias = document.querySelectorAll(".categorias button");
 
     });
    // RECUPERAR MOVIMIENTOS AL ABRIR LA PÁGINA
-    cargarMovimientosGuardados();
+   
 });
 // ==========================================
 // BOTÓN GUARDAR MOVIMIENTO
@@ -336,6 +336,7 @@ botonLogin.addEventListener("click", async function () {
         alert("Correo o contraseña incorrectos.");
         return;
     }
+await cargarMovimientosGuardados();
 
     document.getElementById("login").style.display = "none";
     document.querySelector(".app").style.display = "block";
