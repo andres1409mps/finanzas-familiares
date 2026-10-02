@@ -39,11 +39,18 @@ let totalGastos = 0;
 // ==========================================
 // RECUPERAR MOVIMIENTOS GUARDADOS
 // ==========================================
+async function cargarMovimientosGuardados() {
 
-function cargarMovimientosGuardados() {
+    const { data: movimientosGuardados, error } =
+        await supabaseClient
+            .from("movimientos")
+            .select("*")
+            .order("id", { ascending: true });
 
-    const movimientosGuardados =
-        JSON.parse(localStorage.getItem("movimientos")) || [];
+    if (error) {
+        console.error("Error al cargar movimientos:", error);
+        return;
+    }
 
     const listaMovimientos =
         document.getElementById("lista-movimientos");
@@ -59,6 +66,13 @@ function cargarMovimientosGuardados() {
 
     const tarjetaGastos =
         document.querySelector(".tarjeta.gastos h2");
+
+    // Limpiar movimientos anteriores
+    listaMovimientos.innerHTML = "";
+
+    // Reiniciar totales
+    totalIngresos = 0;
+    totalGastos = 0;
 
     movimientosGuardados.forEach(function (movimiento) {
 
@@ -105,6 +119,8 @@ function cargarMovimientosGuardados() {
 
     if (movimientosGuardados.length > 0) {
         estadoVacio.style.display = "none";
+    } else {
+        estadoVacio.style.display = "block";
     }
 }
 // ------------------------------------------
