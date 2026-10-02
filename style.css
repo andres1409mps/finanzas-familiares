@@ -155,10 +155,12 @@ body {
 ========================================== */
 
 .app {
+    display: none;
     width: 92%;
     max-width: 1000px;
     margin: auto;
     padding: 35px 0 60px;
+    
 }
 
 
