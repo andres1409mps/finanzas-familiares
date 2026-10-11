@@ -81,6 +81,12 @@ async function cargarMovimientosGuardados() {
 
         movimientoHTML.className = "movimiento";
 
+if (movimiento.tipo.includes("Gasto")) {
+    movimientoHTML.classList.add("movimiento-gasto");
+} else {
+    movimientoHTML.classList.add("movimiento-ingreso");
+}
+
         movimientoHTML.innerHTML = `
             <div>
                 <strong>${movimiento.categoria}</strong>
@@ -244,6 +250,12 @@ const listaMovimientos = document.getElementById("lista-movimientos");
 const movimiento = document.createElement("div");
 
 movimiento.className = "movimiento";
+
+if (tipoSeleccionado.textContent.includes("Gasto")) {
+    movimiento.classList.add("movimiento-gasto");
+} else {
+    movimiento.classList.add("movimiento-ingreso");
+}
 
 movimiento.innerHTML = `
     <div>
