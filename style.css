@@ -353,6 +353,27 @@ body {
     text-align: left;
 }
 
+#lista-movimientos .movimiento-ingreso {
+    background: #f0f8f1;
+    border-color: #cfe8d4;
+    border-left: 5px solid #8fc99c;
+}
+
+#lista-movimientos .movimiento-gasto {
+    background: #fff2f4;
+    border-color: #f2d3da;
+    border-left: 5px solid #e7a0af;
+}
+
+#lista-movimientos .movimiento-ingreso > div:last-child strong {
+    color: #287a49;
+}
+
+#lista-movimientos .movimiento-gasto > div:last-child strong {
+    color: #b84058;
+}
+
+
 #lista-movimientos .movimiento > div:first-child {
     min-width: 0;
 }
