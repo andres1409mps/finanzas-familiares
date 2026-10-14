@@ -287,6 +287,16 @@ body {
     background: #bea1cf;
 }
 
+/* BOTÓN PAGOS DEL CARRO */
+.boton-pagos-carro {
+    background: #a8c9e8;
+    box-shadow: 0 8px 20px rgba(90, 130, 180, 0.18);
+}
+
+.boton-pagos-carro:hover {
+    background: #8fb7dc;
+}
+
 
 /* ==========================================
    MOVIMIENTOS
