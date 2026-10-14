@@ -465,6 +465,20 @@ body {
     backdrop-filter: blur(4px);
 }
 
+#ventana-pagos-carro {
+    position: fixed;
+    inset: 0;
+    background: rgba(75, 68, 82, 0.38);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+}
+
+
 
 /* ==========================================
    CAJA DEL FORMULARIO
