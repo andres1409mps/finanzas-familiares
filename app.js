@@ -354,3 +354,19 @@ await cargarMovimientosGuardados();
     document.querySelector(".app").style.display = "block";
 
 });
+
+/* ==========================================
+   VENTANA PAGOS DEL CARRO
+========================================== */
+
+function abrirPagosCarro() {
+    document.getElementById("ventana-pagos-carro").style.display = "flex";
+}
+
+function cerrarPagosCarro() {
+    document.getElementById("ventana-pagos-carro").style.display = "none";
+}
+
+function volverFinanzas() {
+    cerrarPagosCarro();
+}
