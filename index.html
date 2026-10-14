@@ -313,6 +313,54 @@
 
         </section>
 
+<!-- VENTANA PAGOS DEL CARRO -->
+<div id="ventana-pagos-carro" class="ventana">
+    <div class="modal">
+        <div class="modal-encabezado">
+            <div>
+                <span class="modal-icono">🚘</span>
+                <h2>Pagos del carro</h2>
+                <p>Control de cuotas, abonos y deuda</p>
+            </div>
+
+            <button
+                type="button"
+                class="boton-cerrar"
+                onclick="cerrarPagosCarro()">
+                ×
+            </button>
+        </div>
+
+        <div class="campo">
+            <label for="fecha-pago-carro">Fecha del registro</label>
+            <input type="date" id="fecha-pago-carro" required>
+        </div>
+
+        <div class="campo">
+            <label for="cuota-carro">Pago de cuota ($)</label>
+            <input type="number" id="cuota-carro" min="0" step="1" placeholder="Ej: 2666011" required>
+        </div>
+
+        <div class="campo">
+            <label for="abono-carro">Abono adicional a capital ($)</label>
+            <input type="number" id="abono-carro" min="0" step="1" placeholder="Escribe 0 si no hubo abono" required>
+        </div>
+
+        <div class="campo">
+            <label for="deuda-carro">Deuda total a esa fecha ($)</label>
+            <input type="number" id="deuda-carro" min="0" step="1" placeholder="Saldo que debes al banco" required>
+        </div>
+
+        <button type="button" class="boton-guardar" onclick="guardarPagoCarro()">
+            💾 Guardar registro
+        </button>
+
+        <button type="button" class="boton-ver" onclick="volverFinanzas()">
+            ← Volver a Finanzas Familiares
+        </button>
+    </div>
+</div>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
